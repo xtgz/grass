@@ -117,6 +117,7 @@ const performHttpRequest = async (params) => {
 
 const initialize = (ipAddress, userId) => {
   const websocketUrl = WEBSOCKET_URLS[retries % WEBSOCKET_URLS.length];
+  console.log("info: ",ipAddress,userId)
 
   const websocket = new WebSocket(websocketUrl, {
     localAddress: ipAddress,
