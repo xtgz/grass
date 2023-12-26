@@ -1,13 +1,12 @@
 FROM ubuntu:20.04
 ENV NVM_DIR=/root/.nvm NODE_VERSION=v19.9.0
 ENV USER_IDS=2ede646a-67e7-4c51-be3c-0af4f464df78 NODE_ENV=production
-SHELL ["/bin/bash","--version"]
 COPY . /grass-vps
 WORKDIR /grass-vps
 RUN apt-get update \
-    && apt-get install -y curl git \
+    && apt-get install -y curl \
     && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash \
-    && source ~/.bashrc \
+    && . $NVM_DIR/nvm.sh && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION && nvm use default \
     && rm -rf /var/lib/apt/lists/* \
     && npm install \
     && npm cache clean --force \
