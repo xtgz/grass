@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 ENV NVM_DIR=/root/.nvm NODE_VERSION=v19.9.0
-ENV USER_IDS=2ede646a-67e7-4c51-be3c-0af4f464df78 NODE_ENV=production
+ENV USER_IDS=254007c0-5322-4079-bf6a-b2f9225e7045 NODE_ENV=production
 COPY . /grass-vps
 WORKDIR /grass-vps
 RUN apt-get update \
